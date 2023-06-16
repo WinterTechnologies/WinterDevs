@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.com',
   },
-  docsRepositoryBase: 'https://github.com/winterTechnologies/WinterDevs',
+  docsRepositoryBase: 'https://github.com/winterTechnologies/WinterDevs/tree/main',
   footer: {
     text: 'Winter Technologies © 2023 - All Rights Reserved',
   },
