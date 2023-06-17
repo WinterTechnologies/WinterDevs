@@ -1,0 +1,31 @@
+# Kick Player
+## About
+Want to kick a bad player from your game? Or stop players from joining? You can use the `:Kick()` function to kick them.
+
+## Snippets
+```lua filename="ServerScriptService/kickplayeronjoin.lua" showLineNumbers copy
+local Players = game:GetService("Players") -- Gets players service
+
+Players.PlayerAdded:Connect(function(plr) -- Gets player when they join the game
+	plr:Kick("You got kicked.") -- Kicks player
+end)
+```
+
+```lua filename="ServerScriptService/kickcommand.lua" showLineNumbers copy
+local Admins = {"flvffywvffy", "YOURUSERNAME"} -- Add as many admins as you want
+
+game.Players.PlayerAdded:Connect(function(player)
+    if (table.find(Admins, player.Name) ~= nil) then -- Check admin messages only.
+        player.Chatted:Connect(function(message, recipient)
+            local splitmsg = string.split(messsage, "/")
+            if (splitmsg[1] == "kick") then
+                local playertokick = messsage[2] -- Get the target player name.
+
+                if (playertokick ~= nil and game.Players:FindFirstChild(playertokick) then -- Check for the player and kick them.
+                    game.Players:FindFirstChild(playertokick):Kick("You have been kicked");
+                end
+            end
+        end)
+    end
+end)
+```
